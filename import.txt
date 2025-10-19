@@ -1,0 +1,2224 @@
+{
+  "version": "2.3.1-beta.0",
+  "visualisation": {
+    "nodes": [
+      {
+        "id": "n:1",
+        "position": {
+          "x": -92.21172121321993,
+          "y": -11.609650001785102
+        }
+      },
+      {
+        "id": "n:2",
+        "position": {
+          "x": -261.8598356256549,
+          "y": -202.92669792914344
+        }
+      },
+      {
+        "id": "n:3",
+        "position": {
+          "x": 92.14720901193652,
+          "y": -178.7931130986056
+        }
+      },
+      {
+        "id": "n:4",
+        "position": {
+          "x": -228.30502531315625,
+          "y": 292.9455837833979
+        }
+      },
+      {
+        "id": "n:5",
+        "position": {
+          "x": 90.77187753414645,
+          "y": 108.65116575952482
+        }
+      },
+      {
+        "id": "n:6",
+        "position": {
+          "x": 105.90052378983752,
+          "y": -341.08222747783714
+        }
+      },
+      {
+        "id": "n:7",
+        "position": {
+          "x": 325.95356023625317,
+          "y": 114.15249167068518
+        }
+      },
+      {
+        "id": "n:8",
+        "position": {
+          "x": 324.57822875846307,
+          "y": -61.889937486447316
+        }
+      },
+      {
+        "id": "n:9",
+        "position": {
+          "x": -17.879309211271277,
+          "y": 248.93497649411475
+        }
+      },
+      {
+        "id": "n:10",
+        "position": {
+          "x": 108.73368699187108,
+          "y": 363.46360130752333
+        }
+      },
+      {
+        "id": "n:11",
+        "position": {
+          "x": 332.33163478143325,
+          "y": 270.94028013875635
+        }
+      },
+      {
+        "id": "n:12",
+        "position": {
+          "x": 322.70431443690256,
+          "y": -176.04245014302543
+        }
+      }
+    ]
+  },
+  "dataModel": {
+    "version": "2.3.1-beta.0",
+    "graphSchemaRepresentation": {
+      "version": "1.0.0",
+      "graphSchema": {
+        "nodeLabels": [
+          {
+            "$id": "nl:1",
+            "token": "patient",
+            "properties": [
+              {
+                "$id": "p:1",
+                "token": "PatientID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:2",
+                "token": "FirstName",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:3",
+                "token": "LastName",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:4",
+                "token": "DateOfBirth",
+                "type": {
+                  "type": "datetime"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:5",
+                "token": "Gender",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:6",
+                "token": "Address",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:7",
+                "token": "Phone",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:8",
+                "token": "Email",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:9",
+                "token": "MedicareNumber",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:10",
+                "token": "EmergencyContact",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:11",
+                "token": "BloodType",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:2",
+            "token": "appoinments",
+            "properties": [
+              {
+                "$id": "p:25",
+                "token": "AppointmentID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:3",
+            "token": "HealthcareProvider",
+            "properties": [
+              {
+                "$id": "p:26",
+                "token": "ProviderID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:4",
+            "token": "facility",
+            "properties": [
+              {
+                "$id": "p:24",
+                "token": "FacilityID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:5",
+            "token": "medical record",
+            "properties": [
+              {
+                "$id": "p:12",
+                "token": "RecordDate",
+                "type": {
+                  "type": "datetime"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:13",
+                "token": "RecordID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:14",
+                "token": "PatientID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:15",
+                "token": "ChiefComplaint",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:16",
+                "token": "Diagnosis",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:17",
+                "token": "TreatmentPlan",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:18",
+                "token": "FollowUpRequired",
+                "type": {
+                  "type": "boolean"
+                },
+                "nullable": true
+              },
+              {
+                "$id": "p:19",
+                "token": "ProviderID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:6",
+            "token": "medical record",
+            "properties": [
+              {
+                "$id": "p:27",
+                "token": "RecordID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:7",
+            "token": "prescription",
+            "properties": [
+              {
+                "$id": "p:20",
+                "token": "MedicationID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:8",
+            "token": "medication",
+            "properties": [
+              {
+                "$id": "p:29",
+                "token": "MedicationID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:9",
+            "token": "social service",
+            "properties": [
+              {
+                "$id": "p:21",
+                "token": "ServiceName",
+                "type": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:10",
+            "token": "department",
+            "properties": [
+              {
+                "$id": "p:23",
+                "token": "DepartmentID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:11",
+            "token": "patient service",
+            "properties": [
+              {
+                "$id": "p:22",
+                "token": "PatientID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          },
+          {
+            "$id": "nl:12",
+            "token": "provider department",
+            "properties": [
+              {
+                "$id": "p:28",
+                "token": "ProviderID",
+                "type": {
+                  "type": "integer"
+                },
+                "nullable": true
+              }
+            ]
+          }
+        ],
+        "relationshipTypes": [
+          {
+            "$id": "rt:1",
+            "token": "scheduled",
+            "properties": []
+          },
+          {
+            "$id": "rt:2",
+            "token": "attends",
+            "properties": []
+          },
+          {
+            "$id": "rt:3",
+            "token": "occurs_at",
+            "properties": []
+          },
+          {
+            "$id": "rt:4",
+            "token": "has recorf",
+            "properties": []
+          },
+          {
+            "$id": "rt:5",
+            "token": "provides",
+            "properties": []
+          },
+          {
+            "$id": "rt:6",
+            "token": "created  by",
+            "properties": []
+          },
+          {
+            "$id": "rt:7",
+            "token": "contains",
+            "properties": []
+          },
+          {
+            "$id": "rt:8",
+            "token": "prescribes",
+            "properties": []
+          },
+          {
+            "$id": "rt:9",
+            "token": "recevie service",
+            "properties": []
+          },
+          {
+            "$id": "rt:10",
+            "token": "located in",
+            "properties": []
+          },
+          {
+            "$id": "rt:11",
+            "token": "recevie service",
+            "properties": []
+          },
+          {
+            "$id": "rt:12",
+            "token": "works in",
+            "properties": []
+          }
+        ],
+        "nodeObjectTypes": [
+          {
+            "$id": "n:1",
+            "labels": [
+              {
+                "$ref": "#nl:1"
+              }
+            ]
+          },
+          {
+            "$id": "n:2",
+            "labels": [
+              {
+                "$ref": "#nl:2"
+              }
+            ]
+          },
+          {
+            "$id": "n:3",
+            "labels": [
+              {
+                "$ref": "#nl:3"
+              }
+            ]
+          },
+          {
+            "$id": "n:4",
+            "labels": [
+              {
+                "$ref": "#nl:4"
+              }
+            ]
+          },
+          {
+            "$id": "n:5",
+            "labels": [
+              {
+                "$ref": "#nl:5"
+              }
+            ]
+          },
+          {
+            "$id": "n:6",
+            "labels": [
+              {
+                "$ref": "#nl:6"
+              }
+            ]
+          },
+          {
+            "$id": "n:7",
+            "labels": [
+              {
+                "$ref": "#nl:7"
+              }
+            ]
+          },
+          {
+            "$id": "n:8",
+            "labels": [
+              {
+                "$ref": "#nl:8"
+              }
+            ]
+          },
+          {
+            "$id": "n:9",
+            "labels": [
+              {
+                "$ref": "#nl:9"
+              }
+            ]
+          },
+          {
+            "$id": "n:10",
+            "labels": [
+              {
+                "$ref": "#nl:10"
+              }
+            ]
+          },
+          {
+            "$id": "n:11",
+            "labels": [
+              {
+                "$ref": "#nl:11"
+              }
+            ]
+          },
+          {
+            "$id": "n:12",
+            "labels": [
+              {
+                "$ref": "#nl:12"
+              }
+            ]
+          }
+        ],
+        "relationshipObjectTypes": [
+          {
+            "$id": "r:1",
+            "type": {
+              "$ref": "#rt:1"
+            },
+            "from": {
+              "$ref": "#n:1"
+            },
+            "to": {
+              "$ref": "#n:2"
+            }
+          },
+          {
+            "$id": "r:2",
+            "type": {
+              "$ref": "#rt:2"
+            },
+            "from": {
+              "$ref": "#n:3"
+            },
+            "to": {
+              "$ref": "#n:2"
+            }
+          },
+          {
+            "$id": "r:3",
+            "type": {
+              "$ref": "#rt:3"
+            },
+            "from": {
+              "$ref": "#n:4"
+            },
+            "to": {
+              "$ref": "#n:2"
+            }
+          },
+          {
+            "$id": "r:4",
+            "type": {
+              "$ref": "#rt:4"
+            },
+            "from": {
+              "$ref": "#n:1"
+            },
+            "to": {
+              "$ref": "#n:5"
+            }
+          },
+          {
+            "$id": "r:5",
+            "type": {
+              "$ref": "#rt:5"
+            },
+            "from": {
+              "$ref": "#n:3"
+            },
+            "to": {
+              "$ref": "#n:6"
+            }
+          },
+          {
+            "$id": "r:6",
+            "type": {
+              "$ref": "#rt:6"
+            },
+            "from": {
+              "$ref": "#n:3"
+            },
+            "to": {
+              "$ref": "#n:5"
+            }
+          },
+          {
+            "$id": "r:7",
+            "type": {
+              "$ref": "#rt:7"
+            },
+            "from": {
+              "$ref": "#n:5"
+            },
+            "to": {
+              "$ref": "#n:7"
+            }
+          },
+          {
+            "$id": "r:8",
+            "type": {
+              "$ref": "#rt:8"
+            },
+            "from": {
+              "$ref": "#n:7"
+            },
+            "to": {
+              "$ref": "#n:8"
+            }
+          },
+          {
+            "$id": "r:9",
+            "type": {
+              "$ref": "#rt:9"
+            },
+            "from": {
+              "$ref": "#n:1"
+            },
+            "to": {
+              "$ref": "#n:9"
+            }
+          },
+          {
+            "$id": "r:10",
+            "type": {
+              "$ref": "#rt:10"
+            },
+            "from": {
+              "$ref": "#n:10"
+            },
+            "to": {
+              "$ref": "#n:4"
+            }
+          },
+          {
+            "$id": "r:11",
+            "type": {
+              "$ref": "#rt:11"
+            },
+            "from": {
+              "$ref": "#n:11"
+            },
+            "to": {
+              "$ref": "#n:9"
+            }
+          },
+          {
+            "$id": "r:12",
+            "type": {
+              "$ref": "#rt:12"
+            },
+            "from": {
+              "$ref": "#n:3"
+            },
+            "to": {
+              "$ref": "#n:12"
+            }
+          }
+        ],
+        "constraints": [
+          {
+            "$id": "c:1",
+            "name": "PatientID_patient_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:1"
+            },
+            "properties": [
+              {
+                "$ref": "#p:1"
+              }
+            ]
+          },
+          {
+            "$id": "c:2",
+            "name": "RecordDate_medical_record_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:5"
+            },
+            "properties": [
+              {
+                "$ref": "#p:12"
+              }
+            ]
+          },
+          {
+            "$id": "c:3",
+            "name": "MedicationID_prescription_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:7"
+            },
+            "properties": [
+              {
+                "$ref": "#p:20"
+              }
+            ]
+          },
+          {
+            "$id": "c:4",
+            "name": "ServiceName_social_service_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:9"
+            },
+            "properties": [
+              {
+                "$ref": "#p:21"
+              }
+            ]
+          },
+          {
+            "$id": "c:5",
+            "name": "PatientID_patient_service_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:11"
+            },
+            "properties": [
+              {
+                "$ref": "#p:22"
+              }
+            ]
+          },
+          {
+            "$id": "c:6",
+            "name": "DepartmentID_department_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:10"
+            },
+            "properties": [
+              {
+                "$ref": "#p:23"
+              }
+            ]
+          },
+          {
+            "$id": "c:7",
+            "name": "FacilityID_facility_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:4"
+            },
+            "properties": [
+              {
+                "$ref": "#p:24"
+              }
+            ]
+          },
+          {
+            "$id": "c:8",
+            "name": "AppointmentID_appoinments_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:2"
+            },
+            "properties": [
+              {
+                "$ref": "#p:25"
+              }
+            ]
+          },
+          {
+            "$id": "c:9",
+            "name": "ProviderID_HealthcareProvider_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:3"
+            },
+            "properties": [
+              {
+                "$ref": "#p:26"
+              }
+            ]
+          },
+          {
+            "$id": "c:10",
+            "name": "RecordID_medical_record_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:6"
+            },
+            "properties": [
+              {
+                "$ref": "#p:27"
+              }
+            ]
+          },
+          {
+            "$id": "c:11",
+            "name": "ProviderID_provider_department_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:12"
+            },
+            "properties": [
+              {
+                "$ref": "#p:28"
+              }
+            ]
+          },
+          {
+            "$id": "c:12",
+            "name": "MedicationID_medication_uniq",
+            "constraintType": "uniqueness",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:8"
+            },
+            "properties": [
+              {
+                "$ref": "#p:29"
+              }
+            ]
+          }
+        ],
+        "indexes": [
+          {
+            "$id": "i:1",
+            "name": "PatientID_patient_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:1"
+            },
+            "properties": [
+              {
+                "$ref": "#p:1"
+              }
+            ]
+          },
+          {
+            "$id": "i:2",
+            "name": "RecordDate_medical_record_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:5"
+            },
+            "properties": [
+              {
+                "$ref": "#p:12"
+              }
+            ]
+          },
+          {
+            "$id": "i:3",
+            "name": "MedicationID_prescription_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:7"
+            },
+            "properties": [
+              {
+                "$ref": "#p:20"
+              }
+            ]
+          },
+          {
+            "$id": "i:4",
+            "name": "ServiceName_social_service_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:9"
+            },
+            "properties": [
+              {
+                "$ref": "#p:21"
+              }
+            ]
+          },
+          {
+            "$id": "i:5",
+            "name": "PatientID_patient_service_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:11"
+            },
+            "properties": [
+              {
+                "$ref": "#p:22"
+              }
+            ]
+          },
+          {
+            "$id": "i:6",
+            "name": "DepartmentID_department_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:10"
+            },
+            "properties": [
+              {
+                "$ref": "#p:23"
+              }
+            ]
+          },
+          {
+            "$id": "i:7",
+            "name": "FacilityID_facility_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:4"
+            },
+            "properties": [
+              {
+                "$ref": "#p:24"
+              }
+            ]
+          },
+          {
+            "$id": "i:8",
+            "name": "AppointmentID_appoinments_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:2"
+            },
+            "properties": [
+              {
+                "$ref": "#p:25"
+              }
+            ]
+          },
+          {
+            "$id": "i:9",
+            "name": "ProviderID_HealthcareProvider_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:3"
+            },
+            "properties": [
+              {
+                "$ref": "#p:26"
+              }
+            ]
+          },
+          {
+            "$id": "i:10",
+            "name": "RecordID_medical_record_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:6"
+            },
+            "properties": [
+              {
+                "$ref": "#p:27"
+              }
+            ]
+          },
+          {
+            "$id": "i:11",
+            "name": "ProviderID_provider_department_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:12"
+            },
+            "properties": [
+              {
+                "$ref": "#p:28"
+              }
+            ]
+          },
+          {
+            "$id": "i:12",
+            "name": "MedicationID_medication_uniq",
+            "indexType": "default",
+            "entityType": "node",
+            "nodeLabel": {
+              "$ref": "#nl:8"
+            },
+            "properties": [
+              {
+                "$ref": "#p:29"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "graphSchemaExtensionsRepresentation": {
+      "nodeKeyProperties": [
+        {
+          "node": {
+            "$ref": "#n:1"
+          },
+          "keyProperty": {
+            "$ref": "#p:1"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:5"
+          },
+          "keyProperty": {
+            "$ref": "#p:12"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:7"
+          },
+          "keyProperty": {
+            "$ref": "#p:20"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:9"
+          },
+          "keyProperty": {
+            "$ref": "#p:21"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:11"
+          },
+          "keyProperty": {
+            "$ref": "#p:22"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:10"
+          },
+          "keyProperty": {
+            "$ref": "#p:23"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:4"
+          },
+          "keyProperty": {
+            "$ref": "#p:24"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:2"
+          },
+          "keyProperty": {
+            "$ref": "#p:25"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:3"
+          },
+          "keyProperty": {
+            "$ref": "#p:26"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:6"
+          },
+          "keyProperty": {
+            "$ref": "#p:27"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:12"
+          },
+          "keyProperty": {
+            "$ref": "#p:28"
+          }
+        },
+        {
+          "node": {
+            "$ref": "#n:8"
+          },
+          "keyProperty": {
+            "$ref": "#p:29"
+          }
+        }
+      ]
+    },
+    "graphMappingRepresentation": {
+      "dataSourceSchema": {
+        "type": "local",
+        "tableSchemas": [
+          {
+            "name": "Appointment.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "AppointmentID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "PatientID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "ProviderID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "FacilityID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "AppointmentDate",
+                "sample": "2024-12-01",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              },
+              {
+                "name": "AppointmentTime",
+                "sample": "09:00",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "AppointmentType",
+                "sample": "Follow-up",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Status",
+                "sample": "Scheduled",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Notes",
+                "sample": "",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Department.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "DepartmentID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "DepartmentName",
+                "sample": "Emergency",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Floor",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "Extension",
+                "sample": "101",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "FacilityID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Facility.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "FacilityID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "FacilityName",
+                "sample": "Darwin General Hospital",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "FacilityType",
+                "sample": "Hospital",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Address",
+                "sample": "123 Mitchell Street, Darwin NT 0800",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Phone",
+                "sample": "08-8999-1111",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Capacity",
+                "sample": "500",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "OperatingHours",
+                "sample": "24/7",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "HealthcareProvider.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "ProviderID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "FirstName",
+                "sample": "Dr. Rafiqul",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "LastName",
+                "sample": "Islam",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Specialization",
+                "sample": "Cardiology",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "LicenseNumber",
+                "sample": "MED12345",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Phone",
+                "sample": "08-8999-1234",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Email",
+                "sample": "rafiqul@hospital.com",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "YearsOfExperience",
+                "sample": "15",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "ProviderType",
+                "sample": "Doctor",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "MedicalDegree",
+                "sample": "MD, MBBS",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "BoardCertification",
+                "sample": "Cardiology Board Certified",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "NursingDegree",
+                "sample": "",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "ShiftPattern",
+                "sample": "",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "CaseLoad",
+                "sample": "",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "Certification",
+                "sample": "",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "MedicalRecord.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "RecordID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "PatientID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "RecordDate",
+                "sample": "2024-11-01",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              },
+              {
+                "name": "ChiefComplaint",
+                "sample": "Chest pain",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Diagnosis",
+                "sample": "Mild angina",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "TreatmentPlan",
+                "sample": "Medication and lifestyle changes",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "FollowUpRequired",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "ProviderID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Medication.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "MedicationID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "MedicationName",
+                "sample": "Aspirin",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "GenericName",
+                "sample": "Acetylsalicylic acid",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Category",
+                "sample": "Pain reliever",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "SideEffects",
+                "sample": "Stomach upset, bleeding",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Patient.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "PatientID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "FirstName",
+                "sample": "John",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "LastName",
+                "sample": "Smith",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "DateOfBirth",
+                "sample": "1980-05-15",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              },
+              {
+                "name": "Gender",
+                "sample": "Male",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Address",
+                "sample": "10 Beach Road, Darwin NT 0800",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Phone",
+                "sample": "0412-345-678",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Email",
+                "sample": "john.smith@email.com",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "MedicareNumber",
+                "sample": "2123456789",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "EmergencyContact",
+                "sample": "Jane Smith - 0412-345-679",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "BloodType",
+                "sample": "O+",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PatientService.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "PatientID",
+                "sample": "5",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "ServiceID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "StartDate",
+                "sample": "2024-11-01",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              },
+              {
+                "name": "EndDate",
+                "sample": "",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              },
+              {
+                "name": "Status",
+                "sample": "Active",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "AssignedWorkerID",
+                "sample": "5",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Prescription.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "PrescriptionID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "RecordID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "MedicationID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "Dosage",
+                "sample": "100mg",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Frequency",
+                "sample": "Once daily",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Duration",
+                "sample": "30 days",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Instructions",
+                "sample": "Take with food",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "SocialService.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "ServiceID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "ServiceName",
+                "sample": "Home Care Support",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "ServiceType",
+                "sample": "Aged Care",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Description",
+                "sample": "Assistance with daily living activities",
+                "recommendedType": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "EligibilityCriteria",
+                "sample": "Age 65+ or disability",
+                "recommendedType": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "ProviderDepartment.csv",
+            "expanded": true,
+            "fields": [
+              {
+                "name": "ProviderID",
+                "sample": "1",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "DepartmentID",
+                "sample": "2",
+                "recommendedType": {
+                  "type": "integer"
+                }
+              },
+              {
+                "name": "StartDate",
+                "sample": "2020-01-01",
+                "recommendedType": {
+                  "type": "datetime"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "nodeMappings": [
+        {
+          "node": {
+            "$ref": "#n:1"
+          },
+          "tableName": "Patient.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "PatientID",
+              "property": {
+                "$ref": "#p:1"
+              }
+            },
+            {
+              "fieldName": "FirstName",
+              "property": {
+                "$ref": "#p:2"
+              }
+            },
+            {
+              "fieldName": "LastName",
+              "property": {
+                "$ref": "#p:3"
+              }
+            },
+            {
+              "fieldName": "DateOfBirth",
+              "property": {
+                "$ref": "#p:4"
+              }
+            },
+            {
+              "fieldName": "Gender",
+              "property": {
+                "$ref": "#p:5"
+              }
+            },
+            {
+              "fieldName": "Address",
+              "property": {
+                "$ref": "#p:6"
+              }
+            },
+            {
+              "fieldName": "Phone",
+              "property": {
+                "$ref": "#p:7"
+              }
+            },
+            {
+              "fieldName": "Email",
+              "property": {
+                "$ref": "#p:8"
+              }
+            },
+            {
+              "fieldName": "MedicareNumber",
+              "property": {
+                "$ref": "#p:9"
+              }
+            },
+            {
+              "fieldName": "EmergencyContact",
+              "property": {
+                "$ref": "#p:10"
+              }
+            },
+            {
+              "fieldName": "BloodType",
+              "property": {
+                "$ref": "#p:11"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:2"
+          },
+          "tableName": "Appointment.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "AppointmentID",
+              "property": {
+                "$ref": "#p:25"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:4"
+          },
+          "tableName": "Facility.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "FacilityID",
+              "property": {
+                "$ref": "#p:24"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:5"
+          },
+          "tableName": "MedicalRecord.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "RecordDate",
+              "property": {
+                "$ref": "#p:12"
+              }
+            },
+            {
+              "fieldName": "RecordID",
+              "property": {
+                "$ref": "#p:13"
+              }
+            },
+            {
+              "fieldName": "PatientID",
+              "property": {
+                "$ref": "#p:14"
+              }
+            },
+            {
+              "fieldName": "ChiefComplaint",
+              "property": {
+                "$ref": "#p:15"
+              }
+            },
+            {
+              "fieldName": "Diagnosis",
+              "property": {
+                "$ref": "#p:16"
+              }
+            },
+            {
+              "fieldName": "TreatmentPlan",
+              "property": {
+                "$ref": "#p:17"
+              }
+            },
+            {
+              "fieldName": "FollowUpRequired",
+              "property": {
+                "$ref": "#p:18"
+              }
+            },
+            {
+              "fieldName": "ProviderID",
+              "property": {
+                "$ref": "#p:19"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:7"
+          },
+          "tableName": "Prescription.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "MedicationID",
+              "property": {
+                "$ref": "#p:20"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:8"
+          },
+          "tableName": "Medication.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "MedicationID",
+              "property": {
+                "$ref": "#p:29"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:9"
+          },
+          "tableName": "SocialService.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "ServiceName",
+              "property": {
+                "$ref": "#p:21"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:10"
+          },
+          "tableName": "Department.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "DepartmentID",
+              "property": {
+                "$ref": "#p:23"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:11"
+          },
+          "tableName": "PatientService.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "PatientID",
+              "property": {
+                "$ref": "#p:22"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:12"
+          },
+          "tableName": "ProviderDepartment.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "ProviderID",
+              "property": {
+                "$ref": "#p:28"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:3"
+          },
+          "tableName": "HealthcareProvider.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "ProviderID",
+              "property": {
+                "$ref": "#p:26"
+              }
+            }
+          ]
+        },
+        {
+          "node": {
+            "$ref": "#n:6"
+          },
+          "tableName": "MedicalRecord.csv",
+          "propertyMappings": [
+            {
+              "fieldName": "RecordID",
+              "property": {
+                "$ref": "#p:27"
+              }
+            }
+          ]
+        }
+      ],
+      "relationshipMappings": [
+        {
+          "relationship": {
+            "$ref": "#r:2"
+          },
+          "tableName": "HealthcareProvider.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "ProviderID"
+          },
+          "toMapping": {
+            "fieldName": "FirstName"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:1"
+          },
+          "tableName": "Appointment.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "AppointmentID"
+          },
+          "toMapping": {
+            "fieldName": "PatientID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:3"
+          },
+          "tableName": "Facility.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "FacilityID"
+          },
+          "toMapping": {
+            "fieldName": "FacilityName"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:10"
+          },
+          "tableName": "Facility.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "FacilityID"
+          },
+          "toMapping": {
+            "fieldName": "FacilityName"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:9"
+          },
+          "tableName": "Patient.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "PatientID"
+          },
+          "toMapping": {
+            "fieldName": "FirstName"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:11"
+          },
+          "tableName": "PatientService.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "PatientID"
+          },
+          "toMapping": {
+            "fieldName": "ServiceID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:4"
+          },
+          "tableName": "MedicalRecord.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "RecordID"
+          },
+          "toMapping": {
+            "fieldName": "PatientID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:7"
+          },
+          "tableName": "Prescription.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "RecordID"
+          },
+          "toMapping": {
+            "fieldName": "PrescriptionID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:6"
+          },
+          "tableName": "MedicalRecord.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "RecordID"
+          },
+          "toMapping": {
+            "fieldName": "PatientID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:5"
+          },
+          "tableName": "MedicalRecord.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "RecordID"
+          },
+          "toMapping": {
+            "fieldName": "RecordDate"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:12"
+          },
+          "tableName": "ProviderDepartment.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "ProviderID"
+          },
+          "toMapping": {
+            "fieldName": "DepartmentID"
+          }
+        },
+        {
+          "relationship": {
+            "$ref": "#r:8"
+          },
+          "tableName": "Medication.csv",
+          "propertyMappings": [],
+          "fromMapping": {
+            "fieldName": "MedicationID"
+          },
+          "toMapping": {
+            "fieldName": "MedicationName"
+          }
+        }
+      ]
+    },
+    "configurations": {
+      "idsToIgnore": []
+    }
+  }
+}
