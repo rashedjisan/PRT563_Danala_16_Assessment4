@@ -1,0 +1,6 @@
+ProviderID,FirstName,LastName,Specialization,LicenseNumber,Phone,Email,YearsOfExperience,ProviderType,MedicalDegree,BoardCertification,NursingDegree,ShiftPattern,CaseLoad,Certification
+1,Dr. Rafiqul,Islam,Cardiology,MED12345,08-8999-1234,rafiqul@hospital.com,15,Doctor,"MD, MBBS",Cardiology Board Certified,,,,
+2,Dr. Mahmudur,Rahman,General Practice,MED23456,08-8927-2345,mahmudur@clinic.com,10,Doctor,"MD, MBBS",Family Medicine Board Certified,,,,
+3,Amy,Thompson,Emergency Care,NUR34567,08-8999-3456,athompson@hospital.com,8,Nurse,,,Bachelor of Nursing,Day Shift,,
+4,Jane,Martinez,Mental Health,SW45678,08-8932-4567,jmartinez@health.com,12,Social Worker,,,,,15,Licensed Clinical Social Worker
+5,Peter,Anderson,Aged Care,NUR56789,08-8932-5678,panderson@health.com,6,Nurse,,,Bachelor of Nursing,Night Shift,,

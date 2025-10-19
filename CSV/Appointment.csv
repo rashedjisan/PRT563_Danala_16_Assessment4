@@ -1,0 +1,6 @@
+AppointmentID,PatientID,ProviderID,FacilityID,AppointmentDate,AppointmentTime,AppointmentType,Status,Notes
+1,1,1,1,2024-12-01,09:00,Follow-up,Scheduled,
+2,2,2,2,2024-12-02,10:30,Routine Checkup,Scheduled,
+3,3,3,1,2024-12-03,14:00,Emergency,Completed,
+4,4,4,3,2024-12-04,11:00,Counseling,Scheduled,
+5,5,5,3,2024-12-05,15:30,Aged Care Assessment,Scheduled,

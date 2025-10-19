@@ -1,0 +1,6 @@
+MedicationID,MedicationName,GenericName,Category,SideEffects
+1,Aspirin,Acetylsalicylic acid,Pain reliever,"Stomach upset, bleeding"
+2,Metoprolol,Metoprolol tartrate,Beta blocker,"Fatigue, dizziness"
+3,Sertraline,Sertraline HCl,Antidepressant,"Nausea, insomnia"
+4,Lisinopril,Lisinopril,ACE inhibitor,"Dry cough, dizziness"
+5,Paracetamol,Acetaminophen,Pain reliever,Rare liver damage with overdose

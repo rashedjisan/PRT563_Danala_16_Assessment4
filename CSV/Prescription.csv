@@ -1,0 +1,5 @@
+PrescriptionID,RecordID,MedicationID,Dosage,Frequency,Duration,Instructions
+1,1,1,100mg,Once daily,30 days,Take with food
+2,1,2,50mg,Twice daily,60 days,Monitor blood pressure
+3,4,3,50mg,Once daily,90 days,Take in morning
+4,5,4,10mg,Once daily,Ongoing,Monitor blood pressure regularly

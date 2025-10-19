@@ -1,0 +1,6 @@
+ServiceID,ServiceName,ServiceType,Description,EligibilityCriteria
+1,Home Care Support,Aged Care,Assistance with daily living activities,Age 65+ or disability
+2,Mental Health Counseling,Mental Health,Professional counseling services,Mental health diagnosis
+3,Rehabilitation Program,Physical Therapy,Physical rehabilitation services,Post-injury or surgery
+4,Meals on Wheels,Community Support,Meal delivery service,Elderly or disabled
+5,Transport Assistance,Community Support,Medical appointment transport,No access to transport

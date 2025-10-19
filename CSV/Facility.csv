@@ -1,0 +1,4 @@
+FacilityID,FacilityName,FacilityType,Address,Phone,Capacity,OperatingHours
+1,Darwin General Hospital,Hospital,"123 Mitchell Street, Darwin NT 0800",08-8999-1111,500,24/7
+2,Casuarina Medical Centre,Clinic,"456 Trower Road, Casuarina NT 0810",08-8927-2222,50,8AM-6PM Mon-Fri
+3,Palmerston Health Hub,Community Health,"789 University Avenue, Palmerston NT 0830",08-8932-3333,100,8AM-5PM Mon-Sat

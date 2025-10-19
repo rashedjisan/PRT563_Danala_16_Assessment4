@@ -1,0 +1,6 @@
+PatientID,FirstName,LastName,DateOfBirth,Gender,Address,Phone,Email,MedicareNumber,EmergencyContact,BloodType
+1,John,Smith,1980-05-15,Male,"10 Beach Road, Darwin NT 0800",0412-345-678,john.smith@email.com,2123456789,Jane Smith - 0412-345-679,O+
+2,Mary,Johnson,1975-08-22,Female,"22 Sunset Avenue, Casuarina NT 0810",0423-456-789,mary.j@email.com,2234567890,Bob Johnson - 0423-456-790,A+
+3,Robert,Chen,1990-12-10,Male,"33 Palm Street, Palmerston NT 0830",0434-567-890,robert.chen@email.com,2345678901,Lisa Chen - 0434-567-891,B+
+4,Sarah,Williams,1985-03-18,Female,"44 Ocean View, Darwin NT 0800",0445-678-901,sarah.w@email.com,2456789012,Tom Williams - 0445-678-902,AB+
+5,Michael,Brown,1970-11-25,Male,"55 Garden Road, Nightcliff NT 0814",0456-789-012,michael.b@email.com,2567890123,Emma Brown - 0456-789-013,O-
