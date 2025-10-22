@@ -1,288 +1,33 @@
-// NOTE: The following script syntax is valid for database version 5.0 and above.
+// Inputs: the emergency patient's ID
+:param patientId => 1;
 
-:param {
-  // Define the file path root and the individual file names required for loading.
-  // https://neo4j.com/docs/operations-manual/current/configuration/file-locations/
-  file_path_root: 'file:///', // Change this to the folder your script can access the files at.
-  file_0: 'Patient.csv',
-  file_1: 'Appointment.csv',
-  file_2: 'Facility.csv',
-  file_3: 'MedicalRecord.csv',
-  file_4: 'Prescription.csv',
-  file_5: 'Medication.csv',
-  file_6: 'SocialService.csv',
-  file_7: 'Department.csv',
-  file_8: 'PatientService.csv',
-  file_9: 'ProviderDepartment.csv',
-  file_10: 'HealthcareProvider.csv'
-};
+// Derive compatible blood groups from the recipient's blood type
+MATCH (p:patient {PatientID: toInteger($patientId)})
+WITH p,
+CASE p.BloodType
+  WHEN 'O-'  THEN ['O-']
+  WHEN 'O+'  THEN ['O-','O+']
+  WHEN 'A-'  THEN ['O-','A-']
+  WHEN 'A+'  THEN ['O-','O+','A-','A+']
+  WHEN 'B-'  THEN ['O-','B-']
+  WHEN 'B+'  THEN ['O-','O+','B-','B+']
+  WHEN 'AB-' THEN ['O-','A-','B-','AB-']
+  WHEN 'AB+' THEN ['O-','O+','A-','A+','B-','B+','AB-','AB+']
+END AS compatible
 
-// CONSTRAINT creation
-// -------------------
-//
-// Create node uniqueness constraints, ensuring no duplicates for the given node label and ID property exist in the database. This also ensures no duplicates are introduced in future.
-//
-CREATE CONSTRAINT `PatientID_patient_uniq` IF NOT EXISTS
-FOR (n: `patient`)
-REQUIRE (n.`PatientID`) IS UNIQUE;
-CREATE CONSTRAINT `AppointmentID_appoinments_uniq` IF NOT EXISTS
-FOR (n: `appoinments`)
-REQUIRE (n.`AppointmentID`) IS UNIQUE;
-CREATE CONSTRAINT `ProviderID_HealthcareProvider_uniq` IF NOT EXISTS
-FOR (n: `HealthcareProvider`)
-REQUIRE (n.`ProviderID`) IS UNIQUE;
-CREATE CONSTRAINT `FacilityID_facility_uniq` IF NOT EXISTS
-FOR (n: `facility`)
-REQUIRE (n.`FacilityID`) IS UNIQUE;
-CREATE CONSTRAINT `RecordDate_medical_record_uniq` IF NOT EXISTS
-FOR (n: `medical record`)
-REQUIRE (n.`RecordDate`) IS UNIQUE;
-CREATE CONSTRAINT `RecordID_medical_record_uniq` IF NOT EXISTS
-FOR (n: `medical record`)
-REQUIRE (n.`RecordID`) IS UNIQUE;
-CREATE CONSTRAINT `MedicationID_prescription_uniq` IF NOT EXISTS
-FOR (n: `prescription`)
-REQUIRE (n.`MedicationID`) IS UNIQUE;
-CREATE CONSTRAINT `MedicationID_medication_uniq` IF NOT EXISTS
-FOR (n: `medication`)
-REQUIRE (n.`MedicationID`) IS UNIQUE;
-CREATE CONSTRAINT `ServiceName_social_service_uniq` IF NOT EXISTS
-FOR (n: `social service`)
-REQUIRE (n.`ServiceName`) IS UNIQUE;
-CREATE CONSTRAINT `DepartmentID_department_uniq` IF NOT EXISTS
-FOR (n: `department`)
-REQUIRE (n.`DepartmentID`) IS UNIQUE;
-CREATE CONSTRAINT `PatientID_patient_service_uniq` IF NOT EXISTS
-FOR (n: `patient service`)
-REQUIRE (n.`PatientID`) IS UNIQUE;
-CREATE CONSTRAINT `ProviderID_provider_department_uniq` IF NOT EXISTS
-FOR (n: `provider department`)
-REQUIRE (n.`ProviderID`) IS UNIQUE;
-
-:param {
-  idsToSkip: []
-};
-
-// NODE load
-// ---------
-//
-// Load nodes in batches, one node label at a time. Nodes will be created using a MERGE statement to ensure a node with the same label and ID property remains unique. Pre-existing nodes found by a MERGE statement will have their other properties set to the latest values encountered in a load file.
-//
-// NOTE: Any nodes with IDs in the 'idsToSkip' list parameter will not be loaded.
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_0) AS row
-WITH row
-WHERE NOT row.`PatientID` IN $idsToSkip AND NOT toInteger(trim(row.`PatientID`)) IS NULL
-CALL (row) {
-  MERGE (n: `patient` { `PatientID`: toInteger(trim(row.`PatientID`)) })
-  SET n.`PatientID` = toInteger(trim(row.`PatientID`))
-  SET n.`FirstName` = row.`FirstName`
-  SET n.`LastName` = row.`LastName`
-  // Your script contains the datetime datatype. Our app attempts to convert dates to ISO 8601 date format before passing them to the Cypher function.
-  // This conversion cannot be done in a Cypher script load. Please ensure that your CSV file columns are in ISO 8601 date format to ensure equivalent loads.
-  SET n.`DateOfBirth` = datetime(row.`DateOfBirth`)
-  SET n.`Gender` = row.`Gender`
-  SET n.`Address` = row.`Address`
-  SET n.`Phone` = row.`Phone`
-  SET n.`Email` = row.`Email`
-  SET n.`MedicareNumber` = toInteger(trim(row.`MedicareNumber`))
-  SET n.`EmergencyContact` = row.`EmergencyContact`
-  SET n.`BloodType` = row.`BloodType`
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_1) AS row
-WITH row
-WHERE NOT row.`AppointmentID` IN $idsToSkip AND NOT toInteger(trim(row.`AppointmentID`)) IS NULL
-CALL (row) {
-  MERGE (n: `appoinments` { `AppointmentID`: toInteger(trim(row.`AppointmentID`)) })
-  SET n.`AppointmentID` = toInteger(trim(row.`AppointmentID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_10) AS row
-WITH row
-WHERE NOT row.`ProviderID` IN $idsToSkip AND NOT toInteger(trim(row.`ProviderID`)) IS NULL
-CALL (row) {
-  MERGE (n: `HealthcareProvider` { `ProviderID`: toInteger(trim(row.`ProviderID`)) })
-  SET n.`ProviderID` = toInteger(trim(row.`ProviderID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_2) AS row
-WITH row
-WHERE NOT row.`FacilityID` IN $idsToSkip AND NOT toInteger(trim(row.`FacilityID`)) IS NULL
-CALL (row) {
-  MERGE (n: `facility` { `FacilityID`: toInteger(trim(row.`FacilityID`)) })
-  SET n.`FacilityID` = toInteger(trim(row.`FacilityID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_3) AS row
-WITH row
-WHERE NOT row.`RecordDate` IN $idsToSkip AND NOT datetime(row.`RecordDate`) IS NULL
-CALL (row) {
-  MERGE (n: `medical record` { `RecordDate`: datetime(row.`RecordDate`) })
-  // Your script contains the datetime datatype. Our app attempts to convert dates to ISO 8601 date format before passing them to the Cypher function.
-  // This conversion cannot be done in a Cypher script load. Please ensure that your CSV file columns are in ISO 8601 date format to ensure equivalent loads.
-  SET n.`RecordDate` = datetime(row.`RecordDate`)
-  SET n.`RecordID` = toInteger(trim(row.`RecordID`))
-  SET n.`PatientID` = toInteger(trim(row.`PatientID`))
-  SET n.`ChiefComplaint` = row.`ChiefComplaint`
-  SET n.`Diagnosis` = row.`Diagnosis`
-  SET n.`TreatmentPlan` = row.`TreatmentPlan`
-  SET n.`FollowUpRequired` = toLower(trim(row.`FollowUpRequired`)) IN ['1','true','yes']
-  SET n.`ProviderID` = toInteger(trim(row.`ProviderID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_3) AS row
-WITH row
-WHERE NOT row.`RecordID` IN $idsToSkip AND NOT toInteger(trim(row.`RecordID`)) IS NULL
-CALL (row) {
-  MERGE (n: `medical record` { `RecordID`: toInteger(trim(row.`RecordID`)) })
-  SET n.`RecordID` = toInteger(trim(row.`RecordID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_4) AS row
-WITH row
-WHERE NOT row.`MedicationID` IN $idsToSkip AND NOT toInteger(trim(row.`MedicationID`)) IS NULL
-CALL (row) {
-  MERGE (n: `prescription` { `MedicationID`: toInteger(trim(row.`MedicationID`)) })
-  SET n.`MedicationID` = toInteger(trim(row.`MedicationID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_5) AS row
-WITH row
-WHERE NOT row.`MedicationID` IN $idsToSkip AND NOT toInteger(trim(row.`MedicationID`)) IS NULL
-CALL (row) {
-  MERGE (n: `medication` { `MedicationID`: toInteger(trim(row.`MedicationID`)) })
-  SET n.`MedicationID` = toInteger(trim(row.`MedicationID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_6) AS row
-WITH row
-WHERE NOT row.`ServiceName` IN $idsToSkip AND NOT row.`ServiceName` IS NULL
-CALL (row) {
-  MERGE (n: `social service` { `ServiceName`: row.`ServiceName` })
-  SET n.`ServiceName` = row.`ServiceName`
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_7) AS row
-WITH row
-WHERE NOT row.`DepartmentID` IN $idsToSkip AND NOT toInteger(trim(row.`DepartmentID`)) IS NULL
-CALL (row) {
-  MERGE (n: `department` { `DepartmentID`: toInteger(trim(row.`DepartmentID`)) })
-  SET n.`DepartmentID` = toInteger(trim(row.`DepartmentID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_8) AS row
-WITH row
-WHERE NOT row.`PatientID` IN $idsToSkip AND NOT toInteger(trim(row.`PatientID`)) IS NULL
-CALL (row) {
-  MERGE (n: `patient service` { `PatientID`: toInteger(trim(row.`PatientID`)) })
-  SET n.`PatientID` = toInteger(trim(row.`PatientID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_9) AS row
-WITH row
-WHERE NOT row.`ProviderID` IN $idsToSkip AND NOT toInteger(trim(row.`ProviderID`)) IS NULL
-CALL (row) {
-  MERGE (n: `provider department` { `ProviderID`: toInteger(trim(row.`ProviderID`)) })
-  SET n.`ProviderID` = toInteger(trim(row.`ProviderID`))
-} IN TRANSACTIONS OF 10000 ROWS;
-
-
-// RELATIONSHIP load
-// -----------------
-//
-// Load relationships in batches, one relationship type at a time. Relationships are created using a MERGE statement, meaning only one relationship of a given type will ever be created between a pair of nodes.
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_1) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `patient` { `PatientID`: toInteger(trim(row.`AppointmentID`)) })
-  MATCH (target: `appoinments` { `AppointmentID`: toInteger(trim(row.`PatientID`)) })
-  MERGE (source)-[r: `scheduled`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_10) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `HealthcareProvider` { `ProviderID`: toInteger(trim(row.`ProviderID`)) })
-  MATCH (target: `appoinments` { `AppointmentID`: toInteger(trim(row.`FirstName`)) })
-  MERGE (source)-[r: `attends`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_2) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `facility` { `FacilityID`: toInteger(trim(row.`FacilityID`)) })
-  MATCH (target: `appoinments` { `AppointmentID`: toInteger(trim(row.`FacilityName`)) })
-  MERGE (source)-[r: `occurs_at`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_3) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `patient` { `PatientID`: toInteger(trim(row.`RecordID`)) })
-  MATCH (target: `medical record` { `RecordDate`: datetime(row.`PatientID`) })
-  MERGE (source)-[r: `has recorf`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_3) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `HealthcareProvider` { `ProviderID`: toInteger(trim(row.`RecordID`)) })
-  MATCH (target: `medical record` { `RecordID`: toInteger(trim(row.`RecordDate`)) })
-  MERGE (source)-[r: `provides`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_3) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `HealthcareProvider` { `ProviderID`: toInteger(trim(row.`RecordID`)) })
-  MATCH (target: `medical record` { `RecordDate`: datetime(row.`PatientID`) })
-  MERGE (source)-[r: `created  by`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_4) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `medical record` { `RecordDate`: datetime(row.`RecordID`) })
-  MATCH (target: `prescription` { `MedicationID`: toInteger(trim(row.`PrescriptionID`)) })
-  MERGE (source)-[r: `contains`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_5) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `prescription` { `MedicationID`: toInteger(trim(row.`MedicationID`)) })
-  MATCH (target: `medication` { `MedicationID`: toInteger(trim(row.`MedicationName`)) })
-  MERGE (source)-[r: `prescribes`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_0) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `patient` { `PatientID`: toInteger(trim(row.`PatientID`)) })
-  MATCH (target: `social service` { `ServiceName`: row.`FirstName` })
-  MERGE (source)-[r: `recevie service`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_2) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `department` { `DepartmentID`: toInteger(trim(row.`FacilityID`)) })
-  MATCH (target: `facility` { `FacilityID`: toInteger(trim(row.`FacilityName`)) })
-  MERGE (source)-[r: `located in`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_8) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `patient service` { `PatientID`: toInteger(trim(row.`PatientID`)) })
-  MATCH (target: `social service` { `ServiceName`: row.`ServiceID` })
-  MERGE (source)-[r: `recevie service`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
-
-LOAD CSV WITH HEADERS FROM ($file_path_root + $file_9) AS row
-WITH row 
-CALL (row) {
-  MATCH (source: `HealthcareProvider` { `ProviderID`: toInteger(trim(row.`ProviderID`)) })
-  MATCH (target: `provider department` { `ProviderID`: toInteger(trim(row.`DepartmentID`)) })
-  MERGE (source)-[r: `works in`]->(target)
-} IN TRANSACTIONS OF 10000 ROWS;
+// Find compatible donors (other patients) and their last-known facility via appointments
+MATCH (d:patient)
+WHERE d.PatientID <> p.PatientID AND d.BloodType IN compatible
+OPTIONAL MATCH (d)-[:scheduled]->(a)<-[:occurs_at]-(f:facility)
+OPTIONAL MATCH (hp:HealthcareProvider)-[:attends]->(a)
+WITH p, d, f, hp, a
+RETURN
+  p.PatientID            AS emergencyPatientID,
+  p.BloodType            AS neededBloodType,
+  d.PatientID            AS donorID,
+  d.FirstName + ' ' + d.LastName AS donorName,
+  d.BloodType            AS donorBloodType,
+  coalesce(f.FacilityName,'N/A')  AS facility,
+  coalesce(hp.ProviderID,'N/A')   AS contactProvider,
+  a.AppointmentID        AS appointmentRef
+ORDER BY donorBloodType, donorName;
